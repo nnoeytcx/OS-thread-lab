@@ -223,7 +223,7 @@ int main()
         close(server_fd);
         exit(EXIT_FAILURE);
     }
-    while (buffer[0] != 'X' )
+    while (1)
     {
         read(new_socket, buffer, BUFFER_SIZE);
         if (buffer[0] == 'X')//recieve 'exit' from client
@@ -253,7 +253,7 @@ int main()
         send(new_socket, ft_itoa(score), strlen(ft_itoa(score)), 0);
         bzero(buffer, BUFFER_SIZE);
     }
-    printf("Thanks for plaing with me ^_^\n");
+    printf("Thanks for playing with me ^_^\n");
     close(new_socket);
     close(server_fd);
     pthread_mutex_destroy(&print_mutex);
